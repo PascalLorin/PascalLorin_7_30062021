@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://kit.fontawesome.com/b336c3d0c9.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Pascal Lorin">
+  <meta name="description" content="Les petits plats, recettes, ingrédients, ustensiles, appareil pour cuisiner">
+  <link rel="icon" type="image/png" href="icon.png" />
+  <title>Les petits plats</title>
+  <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
+</head>
+
+<body>
+  <div id="enter" class="sr-only" aria-label="Passer au contenu du site les petis plats" tabindex=1>
+    <span>Passer au contenu</span>
+  </div>
+  <!-- Début du header -->
+  <header class="header">
+    <div class="header__logo">
+      <img src="./public/img/logo/logo.jpg" alt="Logo du site petis plats" aria-label="Logo du site les petis plats"
+        tabindex=1>
+    </div>
+  </header>
+  <!-- Champ de recherche principale -->
+  <form class="select" aria-label="Champs de recherche principal" tabindex=1>
+    <div class="select__cont">
+      <div class="search" aria-label="Saisir ici ce que vous recherchez" tabindex=2>
+        <input class="search-input">
+
+      </div>
+      <!-- Icone de recherche principale -->
+      <div class="select__icon">
+        <button class="select__iconB" aria-label="Cliquer pour lancer la recherche" tabindex=2>
+          <div class="fa fa-search">
+
+          </div>
+        </button>
+      </div>
+    </div>
+  </form>
+  <!--  Sélection de catégories  (tags)  -->
+  <!--  Vide par défaut, alimentée par ce qui est éventuellement sélectionné par la suite -->
+  <nav class="tag" aria-label="Affiche les tags sélectionnés et permet de les supprimer" tabindex=1>
+    <div id="tag__select" class="tag__select">
+    </div>
+  </nav>
+  <select class="cats" aria-label="Affiche les catégories permettant de sélectionner des tags" tabindex=1>
+  </select>
+  <!-- Affichage des recettes qui correspondent au(x) critère(s) de recherche -->
+  <!-- Lors du chargement de la page, toutes les recettes sont affichées      -->
+  <main class="cards-container" aria-label="Fiches de présentation de nos recettes" tabindex=1>
+  </main>
+  <script src="./pages/GlobalVar.js"></script>
+  <script src="./pages/ClassRecipe.js"></script>
+  <script src="./pages/ClassIngredient.js"></script>
+  <script src="./pages/ClassAppliance.js"></script>
+  <script src="./pages/ClassUstensil.js"></script>
+  <script src="./pages/ClassTag.js"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>
