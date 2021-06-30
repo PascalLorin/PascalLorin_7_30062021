@@ -53,7 +53,7 @@ class Recipe {
     } else {
       for (appliance of applianceSet) {
         if (this.appliance == appliance.name) {
-          pushRecipe(applianceSet)
+          pushRecipe(this.appliance, applianceSet)
           break
         }
       }
@@ -108,7 +108,7 @@ class Recipe {
   }
 
   // affiche une recette
-  displayRecipe = function {
+  displayRecipe = function () {
     var rcard = document.createElement('article')
 
   }
