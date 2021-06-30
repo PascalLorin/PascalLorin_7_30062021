@@ -1,0 +1,25 @@
+{
+  "name": "Petits plats",
+  "version": "1.0.0",
+  "description": "Site Les petits Plats",
+  "main": "main.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PascalLorin/PascalLorin_7_30062021.git"
+  },
+  "author": "PascalLorin",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/PascalLorin/PascalLorin_7_30062021/issues"
+  },
+  "homepage": "https://github.com/PascalLorin/PascalLorin_7_30062021#readme",
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-plugin-react": "^7.24.0"
+  }
+}
