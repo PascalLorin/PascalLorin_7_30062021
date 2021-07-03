@@ -1,0 +1,15 @@
+@function lightness-shift($colour) {
+    @if (lightness($colour) < 25%){
+        @return lighten($colour, 10%);
+    }@else{
+        @return darken($colour, 10%);
+    }
+}
+
+@function lighten-button($colour,$pct: 15) {
+    @return lighten($colour, $pct);
+}
+
+@function darken-shadow($colour,$pct: 15) {
+    @return darken($colour, $pct)
+}

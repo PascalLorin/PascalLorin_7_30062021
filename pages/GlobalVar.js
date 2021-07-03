@@ -8,4 +8,4 @@ var ustensilSet = [];     // array des objets ustensil chargé à partir des rec
 var tagSet = [];          // array des tags chargé à partir des ingredient, appliance & ustensil
 var recipeToDisplay = []; // array des recipes à afficher à partir du(es) tag(s) sélectionné(s)
 var allRecipes;           // pour afficher toutes les recettes si aucun tag n'est sélectionné
-var recipesCont;          // élement HTML contenant l'affichage des recettes
+var recipesCont;          // l'élement HTML contenant l'affichage des recettes

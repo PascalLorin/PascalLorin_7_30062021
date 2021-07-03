@@ -1,0 +1,43 @@
+:root {
+    --font-default: "Lato", Arial, Helvetica, sans-serif;
+    --font-slab: var(--font-default);
+}
+
+html {
+    font-size: 62.5%; 
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+    font-family: var(--font-default);
+    font-size: 1.8rem;
+    color: black;
+}
+/*
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+
+ol,
+ul,
+li,
+button,
+a {
+    text-decoration: none;
+}
+
+.sr-only {
+    visibility: hidden;
+}

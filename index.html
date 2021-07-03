@@ -5,54 +5,51 @@
   <meta charset="utf-8">
   <script src="https://kit.fontawesome.com/b336c3d0c9.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+San&family=Lato&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Pascal Lorin">
   <meta name="description" content="Les petits plats, recettes, ingrédients, ustensiles, appareil pour cuisiner">
-  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="icon" type="image/png" href="icon.jpg" />
   <title>Les petits plats</title>
   <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
 </head>
 
 <body>
-  <div id="enter" class="sr-only" aria-label="Passer au contenu du site les petis plats" tabindex=1>
+  <div id="enter" class="sr-only" aria-label="Passer au contenu du site les petits plats" tabindex=1>
     <span>Passer au contenu</span>
   </div>
   <!-- Début du header -->
   <header class="header">
     <div class="header__logo">
-      <img src="./public/img/logo/logo.jpg" alt="Logo du site petis plats" aria-label="Logo du site les petis plats"
+      <img src="./public/img/logo/logo.jpg" alt="Logo du site petits plats" aria-label="Logo du site les petits plats"
         tabindex=1>
     </div>
+    <div class="header__title">Les petits plats</div>
   </header>
-  <!-- Champ de recherche principale -->
-  <form class="select" aria-label="Champs de recherche principal" tabindex=1>
-    <div class="select__cont">
-      <div class="search" aria-label="Saisir ici ce que vous recherchez" tabindex=2>
-        <input class="search-input">
-
-      </div>
-      <!-- Icone de recherche principale -->
-      <div class="select__icon">
-        <button class="select__iconB" aria-label="Cliquer pour lancer la recherche" tabindex=2>
-          <div class="fa fa-search">
-
-          </div>
+  <main>
+    <!-- Champ de saisie recherche principale -->
+    <div class="select-cont" aria-label="Champs de recherche principal" tabindex=1>
+      <form id="search" name="search" method="dialog">
+        <div class="formData">
+          <input class="text-control" type="text" id="search" name="search"
+            placeholder="Rechercher un ingrédient, un appareil, un ustensile ou une recette"
+            aria-label="Saisir ici ce que vous recherchez" tabindex=2 />
+        </div>
+        <!-- Icone de recherche principale -->
+        <button class="select-cont__btn" aria-label="Cliquer pour lancer la recherche" tabindex=2>
+          <i class="fa fa-search"></i>
         </button>
-      </div>
+      </form>
     </div>
-  </form>
-  <!--  Sélection de catégories  (tags)  -->
-  <!--  Vide par défaut, alimentée par ce qui est éventuellement sélectionné par la suite -->
-  <nav class="tag" aria-label="Affiche les tags sélectionnés et permet de les supprimer" tabindex=1>
-    <div id="tag__select" class="tag__select">
-    </div>
-  </nav>
-  <select class="cats" aria-label="Affiche les catégories permettant de sélectionner des tags" tabindex=1>
-  </select>
-  <!-- Affichage des recettes qui correspondent au(x) critère(s) de recherche -->
-  <!-- Lors du chargement de la page, toutes les recettes sont affichées      -->
-  <main class="cards-container" aria-label="Fiches de présentation de nos recettes" tabindex=1>
+    <!--  Sélection de catégories (tags). Vide par défaut, alimentée par ce qui est éventuellement sélectionné par la suite -->
+    <nav id="tags" class="tags" aria-label="Affiche les tags sélectionnés et permet de les supprimer" tabindex=1>
+    </nav>
+    <select class="cats" aria-label="Affiche les catégories permettant de sélectionner des tags" tabindex=1>
+    </select>
+    <!-- Affichage des recettes qui correspondent au(x) critère(s) de recherche -->
+    <!-- Lors du chargement de la page, toutes les recettes sont affichées      -->
+    <article class="cards-cont" aria-label="Fiches de présentation de nos recettes" tabindex=1>
+    </article>
   </main>
   <script src="./pages/GlobalVar.js"></script>
   <script src="./pages/ClassRecipe.js"></script>

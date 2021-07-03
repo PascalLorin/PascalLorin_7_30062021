@@ -31,9 +31,7 @@ function displayRecipeSel() {
         if (recipeToDisplay.length == 0) {
           recipeToDisplay.push(id)
         } else {
-          if (recipeToDisplay == id) {
-            break
-          } else {
+          if (recipeToDisplay != id) {
             recipeToDisplay.push(id)
           }
         }
