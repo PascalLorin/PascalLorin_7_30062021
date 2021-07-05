@@ -4,31 +4,21 @@
 }
 
 html {
+    width: 100vh;
     font-size: 62.5%; 
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1240px;
-    margin: auto;
-    font-family: var(--font-default);
-    font-size: 1.8rem;
-    color: black;
-}
-/*
-body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     margin: auto;
+    font-family: var(--font-default);
+    color: black;
 }
 
-main {
-    width: 100%;
+body {
+    max-width: 1240px;
     display: flex;
     flex-direction: column;
 }
-*/
-
 
 ol,
 ul,
