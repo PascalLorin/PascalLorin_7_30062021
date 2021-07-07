@@ -2,40 +2,20 @@
 // initialisation de l'affichage
 // supprime les cards affichées (s'il y en a...)
 function effaceCards() {
-  let listeCards = document.getElementsByClassName('rcard')
-  let length = listeCards.length
-  if (length > 0) {
+  let listeCards = document.getElementsByClassName('card')
+  while (listeCards.length > 0) {
     let parentCard = listeCards[0].parentNode
-    for (let i = 0; i < length; i++) {
-      parentCard.removeChild(listeCards[0])
-    }
+    parentCard.removeChild(listeCards[0])
   }
 }
 
 // affichage de la page principale avec toutes les recettes au lancement
 function displayRecipeAll() {
+  recipesCont = document.getElementById('cards-cont')
   effaceCards()
   recipeSet.forEach(r => {
-    r.displayRecipe()
-  })
-}
-
-// affichage des recettes possédant au moins un critère sélectionné
-function displayRecipeSel() {
-  effaceCards()
-  setAllRecipes()
-
-  tagSet.forEach(t => {
-    if (t.state == true) {
-      recipes.forEach(id => {
-        if (recipeToDisplay.length == 0) {
-          recipeToDisplay.push(id)
-        } else {
-          if (recipeToDisplay != id) {
-            recipeToDisplay.push(id)
-          }
-        }
-      })
+    if (r.displayAble) {
+      r.displayRecipe()
     }
   })
 }
@@ -56,10 +36,13 @@ function select(event) {
     }
   }
   setAllRecipes()
-  if (allRecipes) {
-    displayRecipeAll()
-  } else {
-    displayRecipeSel()
+  displayRecipeAll()
+}
+
+function selectSearch() {
+  alert(search.value.length)
+  if (search.value.length > 3) {
+    alert(search.value)
   }
 }
 
@@ -71,15 +54,20 @@ function loadJson() {
     .then(function (data) {
       let recipes = data.recipes
       for (let r of recipes) {
-        recipeSet.push(new Recipe(r))
-        r.initClasses()
+        let recipe = new Recipe(r)
+        recipeSet.push(recipe)
+        //        recipe.initClasses()
       }
       displayRecipeAll()
       // DOM Elements & events listeners : click sur un bouton tag
+      const search = document.getElementById("search")
+      const btnSearch = document.getElementById("btnSearch")
       const navBtn = document.querySelectorAll(".tagBtnNav")
+      search.addEventListener('keyup', selectSearch)
+      btnSearch.addEventListener('click', selectSearch)
       navBtn.forEach((btn) => btn.addEventListener("click", selectTagMain))
     })
 }
 
-//************ exécution du script ****************
+// exécution du script
 loadJson()

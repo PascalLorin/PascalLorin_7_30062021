@@ -1,23 +1,15 @@
-:root {
-    --font-default: "Lato", Arial, Helvetica, sans-serif;
-    --font-slab: var(--font-default);
-}
-
 html {
-    width: 100vh;
-    font-size: 62.5%; 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: auto;
-    font-family: var(--font-default);
-    color: black;
+    font-size: 62.5%;
 }
 
 body {
+    width: 100%;
     max-width: 1240px;
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
+    margin: auto;
+    color: #000;
+    font-family: 'Lato';
 }
 
 ol,

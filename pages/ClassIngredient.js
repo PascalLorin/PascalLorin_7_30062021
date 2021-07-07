@@ -5,4 +5,5 @@ class Ingredient {
     this.name = arg
     this.recipes = []
   }
+  
 }
