@@ -56,8 +56,10 @@ function loadJson() {
       for (let r of recipes) {
         let recipe = new Recipe(r)
         recipeSet.push(recipe)
-        //        recipe.initClasses()
+        recipe.initClasses()
       }
+      sortAllClasses()
+      debugger
       displayRecipeAll()
       // DOM Elements & events listeners : click sur un bouton tag
       const search = document.getElementById("search")

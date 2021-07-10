@@ -1,8 +1,8 @@
 // Class ustensil
 // Contructeur
 class Ustensil {
-  constructor(arg) {
+  constructor(arg, recipe) {
     this.name = arg
-    this.recipes = []
+    this.recipes = [recipe]
   }
 }

@@ -217,8 +217,8 @@ h1 {
   max-height: 10.9rem;
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

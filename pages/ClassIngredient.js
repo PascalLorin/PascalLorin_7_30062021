@@ -1,9 +1,8 @@
 // Class Ingredient
 // Contructeur
 class Ingredient {
-  constructor(arg) {
+  constructor(arg, recipe) {
     this.name = arg
-    this.recipes = []
+    this.recipes = [recipe]
   }
-  
 }

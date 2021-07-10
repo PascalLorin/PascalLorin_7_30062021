@@ -9,3 +9,26 @@ class Tag {
     this.selected = false       // Tag sélectionné
   }
 }
+
+  // crée l'array des tags à partir de l'élément traité
+  pushTag = function (arg1, arg2) {
+    var tag = tagSet.push(arg1, arg2)
+    pushRecipe(tagset)
+  }
+
+  addTag = function (arg1, arg2) {
+    if (tagSet.length == 0) {
+      pushTag(arg1, arg2)
+    } else {
+      var tagToAdd = true
+      tagSet.forEach(t => {
+        if (t.name == arg1) {
+          pushRecipe(tagSet)
+          tagToAdd = false
+        }
+      })
+      if (tagToAdd) {
+        pushTag(arg1, arg2)
+      }
+    }
+  }
