@@ -13,7 +13,7 @@ class Tag {
   // crée l'array des tags à partir de l'élément traité
   pushTag = function (arg1, arg2) {
     var tag = tagSet.push(arg1, arg2)
-    pushRecipe(tagset)
+    pushRecipe(tagSet)
   }
 
   addTag = function (arg1, arg2) {

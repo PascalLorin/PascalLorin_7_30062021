@@ -11,7 +11,14 @@ function effaceCards() {
 
 // affichage de la page principale avec toutes les recettes au lancement
 function displayRecipeAll() {
-  recipesCont = document.getElementById('cards-cont')
+  effaceCards()
+  recipeSet.forEach(r => {
+    r.displayRecipe()
+  })
+}
+
+// affichage de la page principale avec les recettes sélectionnées
+function displayRecipeSel() {
   effaceCards()
   recipeSet.forEach(r => {
     if (r.displayAble) {
@@ -24,6 +31,7 @@ function displayRecipeAll() {
 // réaffiche les recettes en fonction du nouvel état des tags
 function select(event) {
   let sTag = event.currentTarget.id
+  let tagSuppr = false
   for (let t of tagSet) {
     if (sTag == t.name) {
       t.switchTag()
@@ -40,15 +48,29 @@ function select(event) {
 }
 
 function selectSearch() {
-  alert(search.value.length)
   if (search.value.length > 3) {
     alert(search.value)
   }
 }
 
+
+function selectItem(event) {
+  let itemSelected = event.currentTarget.id
+  let itemClass = event.currentTarget.className[11]
+  treatCat(itemClass, itemSelected)
+  displayRecipeSel()
+}
+
 // fonction de récupération des données JSON au chargement de la page
 // et exécution de la page principale
 function loadJson() {
+  let element;
+  element = document.getElementById('cat1ItemD')
+  element.style.display = "none"
+  element = document.getElementById('cat2ItemD')
+  element.style.display = "none"
+  element = document.getElementById('cat3ItemD')
+  element.style.display = "none"
   let response = fetch(fichierJson)
     .then(response => response.json())
     .then(function (data) {
@@ -59,14 +81,19 @@ function loadJson() {
         recipe.initClasses()
       }
       sortAllClasses()
-      debugger
+      recipesCont = document.getElementById('cards-cont')
       displayRecipeAll()
-      // DOM Elements & events listeners : click sur un bouton tag
+
+      // DOM Elements & events listeners
       const search = document.getElementById("search")
       const btnSearch = document.getElementById("btnSearch")
+      const dispBtn = document.querySelectorAll(".catDown")
+      const hideBtn = document.querySelectorAll(".catUp")
       const navBtn = document.querySelectorAll(".tagBtnNav")
       search.addEventListener('keyup', selectSearch)
       btnSearch.addEventListener('click', selectSearch)
+      dispBtn.forEach((btn) => btn.addEventListener("click", dispCat))
+      hideBtn.forEach((btn) => btn.addEventListener("click", hideCat))
       navBtn.forEach((btn) => btn.addEventListener("click", selectTagMain))
     })
 }

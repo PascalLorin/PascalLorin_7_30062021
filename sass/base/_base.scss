@@ -12,6 +12,16 @@ body {
     font-family: 'Lato';
 }
 
+div,
+nav,
+.fa {
+    display: flex;
+}
+
+p {
+    margin:0;
+}
+
 ol,
 ul,
 li,

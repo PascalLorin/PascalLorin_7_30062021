@@ -17,7 +17,7 @@
             {
                 "ingredient" : "Crème de coco",
                 "quantity" : 2,
-                "unit" : "cuillères à soupe"
+                "unit" : "cuillère à soupe"
             },
             {
                 "ingredient" : "Sucre en poudre",
@@ -66,7 +66,7 @@
             }
         ],
         "time": 60,
-        "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible, faites-le le soir pour le lendemain). Après avoir laissé mariner le poisson, couper le concombre en fines rondelles (sans la peau) et les tomates, en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poisson avec le citron cette fois-ci dans un saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur, vous pouver ajouter 1 à 2 cuillères à soupe de crème de coco.",
+        "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible, faites-le le soir pour le lendemain). Après avoir laissé mariner le poisson, couper le concombre en fines rondelles (sans la peau) et les tomates, en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poisson avec le citron cette fois-ci dans un saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur, vous pouver ajouter 1 à 2 cuillère à soupe de crème de coco.",
         "appliance": "Saladier",
         "ustensils": ["presse citron"]
     },
@@ -165,7 +165,7 @@
            {
                "ingredient": "Crème fraîche",
                "quantity": 2,
-               "unit": "cuillères à soupe"
+               "unit": "cuillère à soupe"
            },
            {
                "ingredient": "Gruyère",
@@ -175,7 +175,7 @@
            {
                 "ingredient": "Moutarde de Dijon",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
            }
         ],
         "time": 45,
@@ -213,7 +213,7 @@
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
 
             }
         ],
@@ -420,7 +420,7 @@
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 6,
-                "unit": "sachets"
+                "unit": "sachet"
             },
             {
                 "ingredient": "Eau",
@@ -601,7 +601,7 @@
             {
                 "ingredient": "Jus de citron",
                 "quantity": 1,
-                "unit":"cuillères à soupe"
+                "unit":"cuillère à soupe"
             },
             {
                 "ingredient": "Glaçons",
@@ -676,7 +676,7 @@
     },
     {
         "id": 20,
-        "name": "pâtes Carbonara",
+        "name": "Pâtes à la Carbonara",
         "servings": 5,
         "ingredients": [
             {
@@ -702,7 +702,7 @@
             {
                 "ingredient": "Huile d'olive",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 30,
@@ -742,7 +742,7 @@
             {
                 "ingredient": "Crème fraîche",
                 "quantity" : 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 30,
@@ -856,7 +856,7 @@
             {
                 "ingredient": "Mayonnaise",
                 "quantity": 2,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 40,
@@ -1152,12 +1152,12 @@
             {
                 "ingredient": "Fromage blanc",
                 "quantity": 4,
-                "unit":"cuillères à soupe"
+                "unit":"cuillère à soupe"
             },
             {
                 "ingredient": "Jus de citron",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 5,
@@ -1214,12 +1214,12 @@
             {
                 "ingredient": "Crème fraîche",
                 "quantity": 2,
-                "unit":"cuillères à soupe"
+                "unit":"cuillère à soupe"
             },
             {
                 "ingredient": "Cumin",
                 "quantity": 1,
-                "unit": "cuillères à café"
+                "unit": "cuillère à café"
             },
             {
                 "ingredient": "Noix de muscade",
@@ -1234,7 +1234,7 @@
     },
     {
         "id": 36,
-        "name": "Lasagne Courgettes et Chèvre",
+        "name": "Lasagne courgettes et chèvre",
         "servings": 2,
         "ingredients": [
             {
@@ -1251,7 +1251,7 @@
                 "unit": "cl"
             },
             {
-                "ingredient": "Lasagnes",
+                "ingredient": "Lasagne",
                 "quantity": 5,
                 "unit":"feuilles"
             },
@@ -1263,11 +1263,11 @@
             {
                 "ingredient": "Maizena",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 35,
-        "description":"Raper les courgette et les faire revenir durant 15 minutes. Ajouter les fromages de chèvre frais. Préparer la béchamelle avec le lait et la maizena. Saler et poivrer. Ajouter de la noix de muscade selon les goûts. Dans un plat, mettre un peu de sauce au fond, puis alternativement des lasagnes, des courgettes et de la sauce. Terminer par de la sauce et ajouter le gruyère. Passer au four à 180° durant 20 à 25 minutes.",
+        "description":"Trancher les courgettes et les faire revenir durant 15 minutes. Ajouter le fromage de chèvre frais. Préparer la béchamelle avec le lait et la maizena. Saler et poivrer. Ajouter de la noix de muscade selon les goûts. Dans un plat, mettre un peu de sauce au fond, puis alternativement des lasagnes, des courgettes et de la sauce. Terminer par de la sauce et recouvrir de gruyère. Passer au four à 180° durant 20 à 25 minutes.",
         "appliance": "Four",
         "ustensils":["plat à gratin", "râpe à fromage", "fouet"]
     },
@@ -1388,12 +1388,12 @@
             {
                 "ingredient": "Sucre en poudre",
                 "quantity": 4,
-                "unit":"cuillères à café"
+                "unit":"cuillère à café"
             },
             {
                 "ingredient": "Bicarbonate",
                 "quantity": 1,
-                "unit": "cuillères à café"
+                "unit": "cuillère à café"
             }
         ],
         "time": 10,
@@ -1418,7 +1418,7 @@
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
             }
         ],
         "time": 20,
@@ -1572,7 +1572,7 @@
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
             },
             {
                 "ingredient": "Oeuf",
@@ -1685,7 +1685,7 @@
             {
                 "ingredient": "Miel",
                 "quantity": 2,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 0,

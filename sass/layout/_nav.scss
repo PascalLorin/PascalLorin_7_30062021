@@ -1,0 +1,148 @@
+// affichage du menu des catégories
+#cat {
+    width: 100%;
+    margin: 2rem 0;
+    flex-direction: row;
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-style: normal;
+    color: white;
+    &1 {
+        background-color: $color-bgrdI;
+    }
+    &2 {
+        background-color: $color-bgrdA;
+    }
+    &3 {
+        background-color: $color-bgrdU;
+    }
+}
+
+.catItem {
+    min-width: 17rem;
+    max-height: 7rem;
+    border-radius: 0.5rem;
+    margin-right: 2rem;
+    float: left;
+
+    &H {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &__name {
+            width: 13rem;
+            padding: 2.4rem 1.5rem 2.5rem 1.5rem;
+        }
+
+        &__title {
+            width: 60rem;
+            padding: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        &__icon {
+            padding-right: 2.5rem;
+        }
+    }
+}
+
+#cat1ItemD {
+    z-index: 9;
+    flex-direction: column;
+    font-style: "normal";
+    font-weight: 400;
+    width: 67rem;
+    height: 40rem;
+    overflow-y: scroll;
+}
+
+#cat1ItemC {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 1.9rem;
+    padding-bottom: 1.5rem;
+    background-color: $color-bgrdI;
+}
+
+#cat2ItemD {
+    z-index: 9;
+    flex-direction: column;
+    font-style: "normal";
+    font-weight: 400;
+    width: 30rem;
+    height: auto;
+}
+
+#cat2ItemC {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 1.9rem;
+    padding-bottom: 1.5rem;
+    background-color: $color-bgrdA;
+}
+
+#cat3ItemD {
+    z-index: 9;
+    flex-direction: column;
+    font-style: "normal";
+    font-weight: 400;
+    width: 67rem;
+    height: 40rem;
+}
+
+#cat3ItemC {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 1.9rem;
+    padding-bottom: 1.5rem;
+    background-color: $color-bgrdU;
+}
+
+.itemS:hover {
+    cursor: pointer;
+    color: black;
+    font-weight: 700;
+}
+
+/*
+    & > .tagBtnNav {
+        @include tag__display;
+
+        &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: $colour-primary;
+        }
+    }
+
+    & > .tagSelect {
+        color: white;
+        background-color: $colour-primary;
+    }
+
+    & > .tagNotSelect {
+        color: $colour-primary;
+        background-color: white;
+    }
+}
+
+.pcard__tags,
+.mod1__tags {
+    @include tags__container;
+
+    &x {
+        @include tag__display;
+    }
+
+    & > .tagSelect {
+        color: white;
+        background-color: $colour-primary;
+    }
+
+    & > .tagNotSelect {
+        color: $colour-primary;
+        background-color: white;
+    }
+}
+*/

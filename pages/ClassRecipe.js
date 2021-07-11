@@ -9,7 +9,7 @@ class Recipe {
     this.description = arg.description
     this.appliance = arg.appliance
     this.ustensils = arg.ustensils
-    this.displayAble = true
+    this.displayAble = false
   }
 
   // charge les arrays à partir des datas de la recette
@@ -30,6 +30,19 @@ class Recipe {
         ingredientSet.push(newItem)
       }
     })
+    // traitement de l'appareil
+    addItem = true
+    for (let i = 0; i < applianceSet.length; i++) {
+      if (this.appliance == applianceSet[i].name) {
+        applianceSet[i].recipes.push(this.id)
+        addItem = false
+        break
+      }
+    }
+    if (addItem) {
+      let newItem = new Appliance(this.appliance, this.id)
+      applianceSet.push(newItem)
+    }
     // traitement des ustensiles
     this.ustensils.forEach(item => {
       addItem = true
@@ -45,19 +58,6 @@ class Recipe {
         ustensilSet.push(newItem)
       }
     })
-    // traitement de l'appareil
-    addItem = true
-    for (let i = 0; i < applianceSet.length; i++) {
-      if (this.appliance == applianceSet[i].name) {
-        applianceSet[i].recipes.push(this.id)
-        addItem = false
-        break
-      }
-    }
-    if (addItem) {
-      let newItem = new Appliance(this.appliance, this.id)
-      applianceSet.push(newItem)
-    }
   }
 
   // affiche une recette

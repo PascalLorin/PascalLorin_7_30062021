@@ -19,7 +19,7 @@
     <span>Passer au contenu</span>
   </div>
   <!-- Début du header -->
-  <header class="m-header">
+  <header id="m-header" class="m-header">
     <div class="m-header__logo">
       <img src="./public/img/logo/logo.jpg" alt="Logo du site petits plats" aria-label="Logo du site les petits plats"
         tabindex=1>
@@ -34,18 +34,100 @@
         aria-label="Saisir ici ce que vous recherchez" tabindex=2 />
       <!-- Icone de recherche principale -->
       <div class="research__btn" id="btnSearch" aria-label="Cliquer pour lancer la recherche" tabindex=2>
-        <i class="fa fa-search"></i>
+        <span class="fa fa-search"></span>
       </div>
     </div>
+
     <!--  Sélection de catégories (tags). Vide par défaut, alimentée par ce qui est éventuellement sélectionné par la suite -->
     <nav id="tags" class="tags" aria-label="Affiche les tags sélectionnés et permet de les supprimer" tabindex=1>
     </nav>
-    <aside class="cats" aria-label="Affiche les catégories permettant de sélectionner des tags" tabindex=1>
-    </aside>
+
+    <!--  Menu de sélection par catégories / items -->
+    <nav id="cat" class="cat">
+      <!-- Item de menu -->
+      <div id="cat1" class="catItem" aria-label="Affiche les ingrédients pour sélectionner des recettes" tabindex=2>
+        <div id="cat1ItemM">
+          <div class="catItemH">
+            <div class="catItemH__name">Ingrédients</div>
+            <div class="catItemH__icon">
+              <div id="cat1Down" class="catDown fa fa-chevron-down"></div>
+            </div>
+          </div>
+        </div>
+        <!-- En-tête liste des éléments -->
+        <div id="cat1ItemD">
+          <div class="catItemH">
+            <div class="catItemH__title" aria-label="Sélectionner un élément pour affiner votre recherche" tabindex=2>
+              Sélectionnez les ingrédients</div>
+            <div class="catItemH__icon">
+              <div id="cat1Up" class="catUp fa fa-chevron-up"></div>
+            </div>
+          </div>
+          <!-- Conteneur des éléments-->
+          <div id="cat1ItemC">
+          </div>
+        </div>
+      </div>
+
+      <div id="cat2" class="catItem" aria-label="Affiche les appareils pour sélectionner des recettes" tabindex=2>
+        <!-- Item de menu -->
+        <div id="cat2ItemM">
+          <div class="catItemH">
+            <div class="catItemH__name">Appareils</div>
+            <div class="catItemH__icon">
+              <div id="cat2Down" class="catDown fa fa-chevron-down"></div>
+            </div>
+          </div>
+        </div>
+        <!-- En-tête liste des éléments -->
+        <div id="cat2ItemD">
+          <div class="catItemH">
+            <div class="catItemH__title" aria-label="Sélectionner un élément pour affiner votre recherche" tabindex=2>
+              Sélectionnez les appareils</div>
+            <div class="catItemH__icon">
+              <div id="cat2Up" class="catUp fa fa-chevron-up"></div>
+            </div>
+          </div>
+          <!-- Conteneur des éléments-->
+          <div id="cat2ItemC">
+          </div>
+        </div>
+      </div>
+
+      <div id="cat3" class="catItem" aria-label="Affiche les ustensiles pour sélectionner des recettes" tabindex=2>
+        <!-- Item de menu -->
+        <div id="cat3ItemM">
+          <div class="catItemH">
+            <div class="catItemH__name">Ustensiles</div>
+            <div class="catItemH__icon">
+              <div id="cat3Down" class="catDown fa fa-chevron-down"></div>
+            </div>
+          </div>
+        </div>
+        <!-- En-tête liste des éléments -->
+        <div id="cat3ItemD">
+          <div class="catItemH">
+            <div class="catItemH__title" aria-label="Sélectionner un élément pour affiner votre recherche" tabindex=2>
+              Sélectionnez les ustensiles</div>
+            <div class="catItemH__icon">
+              <div id="cat3Up" class="catUp fa fa-chevron-up"></div>
+            </div>
+          </div>
+          <!-- Conteneur des éléments-->
+          <div id="cat3ItemC">
+          </div>
+        </div>
+      </div>
+    </nav>
     <!-- Affichage des recettes qui correspondent au(x) critère(s) de recherche -->
     <!-- Lors du chargement de la page, toutes les recettes sont affichées      -->
     <article id="cards-cont" aria-label="Fiches de présentation de nos recettes" tabindex=1>
     </article>
+    <div class="toTop">
+      <a href="#m-header" id="toTop" class="fa fa-arrow-up" title="Cliquer pour retourner au début de la page"
+        aria-label="Cliquer pour retourner au début de la page" tabindex=1>
+      </a>
+    </div>
   </main>
   <script src="./pages/GlobalVar.js"></script>
   <script src="./pages/ClassRecipe.js"></script>
@@ -54,6 +136,7 @@
   <script src="./pages/ClassAppliance.js"></script>
   <script src="./pages/ClassTag.js"></script>
   <script src="./pages/sortClasses.js"></script>
+  <script src="./pages/treatCats.js"></script>
   <script src="./main.js"></script>
 </body>
 

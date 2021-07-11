@@ -12,6 +12,16 @@ body {
   font-family: "Lato";
 }
 
+div,
+nav,
+.fa {
+  display: flex;
+}
+
+p {
+  margin: 0;
+}
+
 ol,
 ul,
 li,
@@ -60,6 +70,149 @@ h1 {
   color: #D04F4F;
 }
 
+#cat {
+  width: 100%;
+  margin: 2rem 0;
+  flex-direction: row;
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-style: normal;
+  color: white;
+}
+#cat1 {
+  background-color: #3282F7;
+}
+#cat2 {
+  background-color: #68D9A4;
+}
+#cat3 {
+  background-color: #ED6454;
+}
+
+.catItem {
+  min-width: 17rem;
+  max-height: 7rem;
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  float: left;
+}
+.catItemH {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.catItemH__name {
+  width: 13rem;
+  padding: 2.4rem 1.5rem 2.5rem 1.5rem;
+}
+.catItemH__title {
+  width: 60rem;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+}
+.catItemH__icon {
+  padding-right: 2.5rem;
+}
+
+#cat1ItemD {
+  z-index: 9;
+  flex-direction: column;
+  font-style: "normal";
+  font-weight: 400;
+  width: 67rem;
+  height: 40rem;
+  overflow-y: scroll;
+}
+
+#cat1ItemC {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 1.9rem;
+  padding-bottom: 1.5rem;
+  background-color: #3282F7;
+}
+
+#cat2ItemD {
+  z-index: 9;
+  flex-direction: column;
+  font-style: "normal";
+  font-weight: 400;
+  width: 30rem;
+  height: auto;
+}
+
+#cat2ItemC {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-left: 1.9rem;
+  padding-bottom: 1.5rem;
+  background-color: #68D9A4;
+}
+
+#cat3ItemD {
+  z-index: 9;
+  flex-direction: column;
+  font-style: "normal";
+  font-weight: 400;
+  width: 67rem;
+  height: 40rem;
+}
+
+#cat3ItemC {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 1.9rem;
+  padding-bottom: 1.5rem;
+  background-color: #ED6454;
+}
+
+.itemS:hover {
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+}
+
+/*
+    & > .tagBtnNav {
+        @include tag__display;
+
+        &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: $colour-primary;
+        }
+    }
+
+    & > .tagSelect {
+        color: white;
+        background-color: $colour-primary;
+    }
+
+    & > .tagNotSelect {
+        color: $colour-primary;
+        background-color: white;
+    }
+}
+
+.pcard__tags,
+.mod1__tags {
+    @include tags__container;
+
+    &x {
+        @include tag__display;
+    }
+
+    & > .tagSelect {
+        color: white;
+        background-color: $colour-primary;
+    }
+
+    & > .tagNotSelect {
+        color: $colour-primary;
+        background-color: white;
+    }
+}
+*/
 .research {
   height: 7rem;
   border-radius: 0.5rem;
@@ -71,7 +224,7 @@ h1 {
   justify-content: space-between;
 }
 .research > input {
-  border: none;
+  border-color: transparent;
   background-color: transparent;
   width: 100%;
   padding: 2.3rem;
@@ -79,7 +232,7 @@ h1 {
   font-size: 1.8rem;
 }
 .research > input:hover:focus-visible, .research > input:active:focus-visible {
-  text-decoration: none !important;
+  border-color: transparent !important;
   background-color: transparent !important;
 }
 .research__btn {
@@ -89,12 +242,34 @@ h1 {
   justify-content: center;
   padding: 1.7rem 1.9rem;
 }
-.research__btn > i {
+.research__btn > span {
   font-size: 3.2rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 .research__btn:hover {
-  background-color: red;
+  background-color: #C7BEBE;
+}
+
+.toTop {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 5rem;
+  height: 5rem;
+  background-color: #C7BEBE;
+  border: none;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}
+.toTop:hover {
+  opacity: 1;
+}
+
+#toTop {
+  font-size: 2rem;
+  color: black;
 }
 
 .tags {
@@ -174,7 +349,8 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2rem 2rem;
+  height: 2rem;
 }
 .card__low-hname {
   font-size: 1.8rem;
@@ -196,25 +372,24 @@ h1 {
 .card__low-c {
   display: flex;
   flex-direction: row;
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 2rem 1rem 2rem;
 }
 .card__low-cl {
   width: 50%;
   display: flex;
   flex-direction: column;
+  padding-right: 0.5rem;
   max-height: 10.5rem;
 }
 .card__low-cll {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 1.5rem;
+  flex-wrap: wrap;
   font-weight: 700;
 }
 .card__low-cr {
   width: 50%;
-  max-height: 10.9rem;
+  max-height: 10.5rem;
   display: flex;
   flex-wrap: wrap;
   text-overflow: ellipsis;
