@@ -48,7 +48,7 @@ function select(event) {
 }
 
 function selectSearch() {
-  if (search.value.length > 3) {
+  if (search.value.length > 2) {
     alert(search.value)
   }
 }

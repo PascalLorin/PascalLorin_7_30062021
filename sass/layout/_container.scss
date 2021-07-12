@@ -12,18 +12,11 @@
     & > input {
         border-color: transparent;
         background-color: transparent;
+        outline: none;
         width: 100%;
         padding: 2.3rem;
         color: black;
         font-size: 1.8rem;
-
-        &:hover,
-        &:active {
-            &:focus-visible {
-                border-color: transparent !important;
-                background-color: transparent !important;
-            }
-        }
     }
 
     &__btn {
@@ -38,7 +31,7 @@
             font-weight: 700;
         }
         &:hover {
-            background-color:$color-bgrdHC;
+            background-color: $color-bgrdHC;
         }
     }
 }
@@ -46,7 +39,7 @@
 .toTop {
     position: fixed;
     bottom: 5%;
-    right:5%;
+    right: 5%;
     width: 5rem;
     height: 5rem;
     background-color: $color-bgrdHC;
@@ -59,7 +52,6 @@
     &:hover {
         opacity: 1;
     }
-
 }
 
 #toTop {
@@ -192,15 +184,15 @@
                 &l {
                     display: flex;
                     flex-direction: row;
-                    flex-wrap:wrap;
+                    flex-wrap: wrap;
                     font-weight: 700;
                 }
             }
             // recipe container
             &r {
-                width: 50%;
+                width: 16rem;
                 max-height: 10.5rem;
-                display: flex;
+                display: inline-flexbox;
                 flex-wrap: wrap;
                 text-overflow: ellipsis;
                 overflow: hidden;

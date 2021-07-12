@@ -226,14 +226,11 @@ h1 {
 .research > input {
   border-color: transparent;
   background-color: transparent;
+  outline: none;
   width: 100%;
   padding: 2.3rem;
   color: black;
   font-size: 1.8rem;
-}
-.research > input:hover:focus-visible, .research > input:active:focus-visible {
-  border-color: transparent !important;
-  background-color: transparent !important;
 }
 .research__btn {
   width: 3.2rem;
@@ -388,9 +385,9 @@ h1 {
   font-weight: 700;
 }
 .card__low-cr {
-  width: 50%;
+  width: 16rem;
   max-height: 10.5rem;
-  display: flex;
+  display: inline-flexbox;
   flex-wrap: wrap;
   text-overflow: ellipsis;
   overflow: hidden;
