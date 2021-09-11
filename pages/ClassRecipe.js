@@ -9,12 +9,24 @@ class Recipe {
     this.description = arg.description
     this.appliance = arg.appliance
     this.ustensils = arg.ustensils
-    this.displayAble = false
+    this.upperName
+    this.upperDescription
+  }
+
+  // Transforme la description en majuscules sans accents
+  convUpperCase = function () {
+    let wString = this.name
+    let convString = replaceAccent(wString)
+    this.upperName = convString.toUpperCase()
+    wString = this.description
+    convString = replaceAccent(wString)
+    this.upperDescription = convString.toUpperCase()
   }
 
   // charge les arrays à partir des datas de la recette
   initClasses = function () {
     let addItem = true
+    let newItem
     // traitement des ingrédients
     this.ingredients.forEach(item => {
       addItem = true
@@ -26,7 +38,7 @@ class Recipe {
         }
       }
       if (addItem) {
-        let newItem = new Ingredient(item.ingredient, this.id)
+        newItem = new Ingredient(item.ingredient, this.id)
         ingredientSet.push(newItem)
       }
     })
@@ -40,7 +52,7 @@ class Recipe {
       }
     }
     if (addItem) {
-      let newItem = new Appliance(this.appliance, this.id)
+      newItem = new Appliance(this.appliance, this.id)
       applianceSet.push(newItem)
     }
     // traitement des ustensiles
@@ -54,7 +66,7 @@ class Recipe {
         }
       }
       if (addItem) {
-        let newItem = new Ustensil(item, this.id)
+        newItem = new Ustensil(item, this.id)
         ustensilSet.push(newItem)
       }
     })

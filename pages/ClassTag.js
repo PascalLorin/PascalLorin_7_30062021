@@ -1,34 +1,55 @@
 // Class tag
 // Contructeur
 class Tag {
-  constructor(arg1, arg2) {
-    this.name = arg1            // nom du tag
-    this.type = arg2            // catégorie du tag
-    this.recipes = []           // Id des recipes qui le contiennent
-    this.displayAble = false    // Tag affichable
-    this.selected = false       // Tag sélectionné
-  }
-}
-
-  // crée l'array des tags à partir de l'élément traité
-  pushTag = function (arg1, arg2) {
-    var tag = tagSet.push(arg1, arg2)
-    pushRecipe(tagSet)
+  constructor(item, cat) {
+    this.name = item.name       // nom du tag
+    this.recipes = item.recipes // Id des recipes qui le contiennent
+    this.cat = cat              // catégorie du tag
+    this.upperName = item.upperName
   }
 
-  addTag = function (arg1, arg2) {
+  // recherche si le tag existe déjà
+  addTag = function () {
     if (tagSet.length == 0) {
-      pushTag(arg1, arg2)
+      this.pushTag()
     } else {
       var tagToAdd = true
       tagSet.forEach(t => {
-        if (t.name == arg1) {
-          pushRecipe(tagSet)
+        if (t.name == this.name) {
           tagToAdd = false
         }
       })
       if (tagToAdd) {
-        pushTag(arg1, arg2)
+        this.pushTag()
       }
     }
   }
+
+  // crée l'array des tags à partir de l'élément traité
+  // ajoute eventListener(s) pour supprimer le(s) tag(s)
+  pushTag = function () {
+    tagSet.push(this)
+    this.displayTag()
+    const tagBtn = document.querySelectorAll(".tag")
+    tagBtn.forEach((btn) => btn.addEventListener("click", removeTag))
+  }
+
+  // Affiche le tag nouvellement créé
+  displayTag = function () {
+    let tagB = document.createElement('button')
+    tagB.setAttribute('id', this.name)
+    tagB.setAttribute('class', "tag tag" + this.cat)
+    tagSetCont.append(tagB)
+    let tagName = document.createElement('div')
+    tagName.textContent = this.name
+    tagName.setAttribute('class', "tag_name")
+    lastSearchTagName = tagName 
+    tagB.append(tagName)
+    let tagCont = document.createElement('div')
+    tagCont.setAttribute('class', "tag_cont")
+    tagB.append(tagCont)
+    let tagIcon = document.createElement('span')
+    tagIcon.setAttribute('class', "fa fa-close")
+    tagCont.append(tagIcon)
+  }
+}

@@ -63,42 +63,63 @@
 .tags {
     display: none;
     width: fit-content;
+    height: 3.7rem;
     background-color: transparent;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    margin: auto;
-
-    &__tag {
-        height: 2.2rem;
-        font-weight: 600;
-        font-size: 1.2rem;
-        background-color: white;
-        border: 0.5rem solid;
-        border-radius: 1.1rem;
-        padding: 0 0.8rem;
-        margin: 0 0.4rem;
-        margin-bottom: 0.5rem;
-        float: left;
-    }
+    margin-top: 2rem;
 }
 
-// tags display & selection
-.tagBtnNav {
-    &:hover {
-        cursor: pointer;
-        color: black;
-    }
-}
-
-.tagSelect {
-    color: black;
-}
-
-.tagNotSelect {
+.tag {
+    display: flex;
+    flex-direction : row;
+    height: 3.7rem;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1rem;
     color: white;
+    float: left;
+
+    &0 {
+        background-color: $color-bgrdS;
+    }
+
+    &1 {
+        background-color: $color-bgrdI;
+    }
+    &2 {
+        background-color: $color-bgrdA;
+    }
+    &3 {
+        background-color: $color-bgrdU;
+    }
+
+    &_name {
+        width: fit-content;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    &_cont {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right:1rem;
+        border: 2px solid white;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+            font-size: 1.4rem;
+        }
+    }
 }
 
 // main page : grid recipes display

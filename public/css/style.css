@@ -172,47 +172,6 @@ h1 {
   font-weight: 700;
 }
 
-/*
-    & > .tagBtnNav {
-        @include tag__display;
-
-        &:hover {
-            cursor: pointer;
-            color: white;
-            background-color: $colour-primary;
-        }
-    }
-
-    & > .tagSelect {
-        color: white;
-        background-color: $colour-primary;
-    }
-
-    & > .tagNotSelect {
-        color: $colour-primary;
-        background-color: white;
-    }
-}
-
-.pcard__tags,
-.mod1__tags {
-    @include tags__container;
-
-    &x {
-        @include tag__display;
-    }
-
-    & > .tagSelect {
-        color: white;
-        background-color: $colour-primary;
-    }
-
-    & > .tagNotSelect {
-        color: $colour-primary;
-        background-color: white;
-    }
-}
-*/
 .research {
   height: 7rem;
   border-radius: 0.5rem;
@@ -272,38 +231,58 @@ h1 {
 .tags {
   display: none;
   width: fit-content;
+  height: 3.7rem;
   background-color: transparent;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  margin: auto;
+  margin-top: 2rem;
 }
-.tags__tag {
-  height: 2.2rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  background-color: white;
-  border: 0.5rem solid;
-  border-radius: 1.1rem;
-  padding: 0 0.8rem;
-  margin: 0 0.4rem;
-  margin-bottom: 0.5rem;
+
+.tag {
+  display: flex;
+  flex-direction: row;
+  height: 3.7rem;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1rem;
+  color: white;
   float: left;
 }
-
-.tagBtnNav:hover {
-  cursor: pointer;
-  color: black;
+.tag0 {
+  background-color: #d3218f;
 }
-
-.tagSelect {
-  color: black;
+.tag1 {
+  background-color: #3282F7;
 }
-
-.tagNotSelect {
-  color: white;
+.tag2 {
+  background-color: #68D9A4;
+}
+.tag3 {
+  background-color: #ED6454;
+}
+.tag_name {
+  width: fit-content;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.tag_cont {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.tag_cont > span {
+  font-size: 1.4rem;
 }
 
 #cards-cont {
