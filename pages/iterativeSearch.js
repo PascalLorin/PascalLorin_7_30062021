@@ -19,19 +19,20 @@ function iterativeSearch(item, wItem) {
           }
         } else {
           tagToAdd = true
+          debugger // traitement de backspace
         }
       }
       if (tagToAdd) {
         createTag(item, w.id, wItem, "0")
       } else {
-        let rToAdd = true
+        let recipeToAdd = true
         for (let i = 0; i < wTag.recipes.length - 1; i++) {
           if (wTag.recipes[i] == w.id) {
-            rToAdd = false
+            recipeToAdd = false
             break
           }
         }
-        if (rToAdd) {
+        if (recipeToAdd) {
           tagSet[tagSet.length - 1].recipes.push(w.id)
         }
       }
@@ -57,5 +58,4 @@ function createTag(item, recipe, wItem, cat) {
   }
   let newTag = new Tag(newItem, cat)
   newTag.addTag()
-  return
 }

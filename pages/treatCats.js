@@ -152,13 +152,13 @@ function treatCat(itemSelected, itemClass) {
   switch (cat) {
     case "1":
       tagN = treatCat1(order)
-      break;
+      break
     case "2":
       tagN = treatCat2(order)
-      break;
+      break
     case "3":
       tagN = treatCat3(order)
-      break;
+      break
   }
   newTag = new Tag(tagN, cat)
   newTag.addTag()

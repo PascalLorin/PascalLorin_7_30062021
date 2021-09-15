@@ -15,16 +15,12 @@ class Recipe {
 
   // Transforme la description en majuscules sans accents
   convUpperCase = function () {
-    let wString = this.name
-    let convString = replaceAccent(wString)
-    this.upperName = convString.toUpperCase()
-    wString = this.description
-    convString = replaceAccent(wString)
-    this.upperDescription = convString.toUpperCase()
+    this.upperName = toUpperName(this.name)
+    this.upperDescription = toUpperName(this.description)
   }
 
   // charge les arrays à partir des datas de la recette
-  initClasses = function () {
+  loadArrays = function () {
     let addItem = true
     let newItem
     // traitement des ingrédients
@@ -77,6 +73,7 @@ class Recipe {
     let card = document.createElement('section')
     card.setAttribute('id', this.id)
     card.setAttribute('class', "card")
+    card.textContent = this.id
     recipesCont.append(card)
     let card_high = document.createElement('div')
     card_high.setAttribute('class', "card__high")
@@ -125,4 +122,25 @@ class Recipe {
     card_low_cr.textContent = this.description
     card_low_c.append(card_low_cr)
   }
+}
+
+// affichage de la page principale avec toutes les recettes au lancement
+function displayAllRecipes() {
+  effaceCards()
+  recipeSet.forEach(r => {
+    r.displayRecipe()
+  })
+}
+
+// affichage de la page principale avec les recettes sélectionnées
+function displaySelRecipes() {
+  effaceCards()
+  recipeSet.forEach(r => {
+    for (let i of displayAbleRecipes) {
+      if (i == r.id) {
+        r.displayRecipe()
+        break
+      }
+    }
+  })
 }
