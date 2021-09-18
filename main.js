@@ -5,91 +5,40 @@ function removeItems(element) {
   }
 }
 
-// supprime les cards affichées (s'il y en a...)
-function effaceCards() {
-  element = document.getElementById('cards-cont')
-  if (element) {
-    removeItems(element)
-  }
-}
-
-// clic sur un tag : annulation de la sélection
-// réaffiche les recettes en fonction du nouvel état des tags
-function removeTag(event) {
-  let sTag = event.currentTarget.id
-  hideCat1()
-  hideCat2()
-  hideCat3()
-  let i = 0
-  for (let t of tagSet) {
-    if (sTag == t.name) {
-      debugger
-      element = document.getElementById(sTag)
-      tagSetCont.removeChild(element)
-      tagSet.splice(i, 1)
-      if (tagSet.length == 0) {
-        setCatsDisplay(true)
-        displayAllRecipes()
-      } else {
-        treatTags()
-        displaySelRecipes()
-      }
-    } else {
-      i++
-    }
-  }
-}
-
-function treatTags() {
-  taggedRecipes = []
-  tagSet.forEach(t => {
-    t.recipes.forEach(r => {
-      taggedRecipes.push(r)
-    })
-  })
-  selRecipes()
-  displaySelRecipes()
-}
-
-// traitement des listes déroulantes
-function selectItem(event) {
-  // className contient la catégorie [11] et l'index de l'item [13.."]
-  let itemSelected = event.currentTarget.id
-  let itemClass = event.currentTarget.className
-  treatCat(itemSelected, itemClass)
-  selRecipes()
-  displaySelRecipes()
-  switch (itemClass[11]) {
-    case "1":
-      hideCat1()
-      break
-    case "2":
-      hideCat2()
-      break
-    case "3":
-      hideCat3()
-      break
-  }
+function reInitPage() {
+  tagSet = []
+  search.value = ""
+  removeItems(tagSetCont)
+  setCatsDisplay(true)
+  displayAllRecipes()
 }
 
 //  traitement du champs de recherche
 //  rechercher en majuscules ce qui est saisi.
 //  puis afficher les recettes qui correspondent.
-function selectSearch() {
-  hideCat1()
-  hideCat2()
-  hideCat3()
-  taggedRecipes = []
+function selectSearch(event) {
+  hideCats()
+  switch (event.key) {
+    case "Escape":
+      reInitPage()
+      return
+    case "Backspace":
+      treatLastTag0()
+      treatTags()
+      break
+  }
   if (search.value.length > 2) {
-    let wSearch = toUpperName(search.value)
     let tSearch = search.value.split(" ")
+    let wSearch = toUpperName(search.value)
     let wString = wSearch.split(" ")
-    for (let i = 0; i < wString.length; i++) {
+    let l = wString.length
+    for (let i = 0; i < l; i++) {
       if (tSearch[i].length > 2) {
-        if (wSearch[wSearch.length - 1] == " " || wString.length > 1) {
+        if (l > 1 && i < l - 1) {
           tSearch[i] += " "
           wString[i] += " "
         }
+        taggedRecipes = []
         if (iterativeSearch(tSearch[i], wString[i])) {
           selRecipes()
           displaySelRecipes()
@@ -135,18 +84,6 @@ function selRecipes() {
   }
 }
 
-function setCatsDisplay(state) {
-  ingredientSet.forEach(i => {
-    i.displayAble = state
-  })
-  ustensilSet.forEach(i => {
-    i.displayAble = state
-  })
-  applianceSet.forEach(i => {
-    i.displayAble = state
-  })
-}
-
 // modifier pour cat "0" ???
 function initCatsDisplay(r) {
   recipeSet[r - 1].ingredients.forEach(i => {
@@ -173,24 +110,11 @@ function initCatsDisplay(r) {
   }
 }
 
-// génère les noms en majuscule de chaque Array
-function toUpperNameArrays() {
-  ingredientSet.forEach(item => {
-    item.upperName = toUpperName(item.name)
-  })
-  ustensilSet.forEach(item => {
-    item.upperName = toUpperName(item.name)
-  })
-  applianceSet.forEach(item => {
-    item.upperName = toUpperName(item.name)
-  })
-}
-
 // supprime les accents, la ponctuation et les espaces multiples
 function toUpperName(wString) {
   let convString = replaceAccent(wString)
-  let punctuationLess = convString.replace(/[.,'\/#!$%\^&\*;:{}=\-_`~()]/g, " ");
-  let finalString = punctuationLess.replace(/\s{2,}/g, " ");
+  let punctuationLess = convString.replace(/[.,'\/#!$%\^&\*;:{}=\-_`~()]/g, " ")
+  let finalString = punctuationLess.replace(/\s{2,}/g, " ")
   return finalString.toUpperCase()
 }
 

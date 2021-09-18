@@ -17,6 +17,13 @@ function dispCat(event) {
   itemSel.forEach((btn) => btn.addEventListener("click", selectItem))
 }
 
+// ferme les listes déroulantes
+function hideCats () {
+  hideCat1()
+  hideCat2()
+  hideCat3()
+}
+
 // hide cat clicked
 function hideCat(event) {
   let cat = event.currentTarget.id
@@ -106,7 +113,7 @@ function dispCat3() {
     if (!ustensil.displayAble) {
       item.style.display = "none"
     }
-      element.append(item)
+    element.append(item)
     i++
   })
 }
@@ -183,4 +190,51 @@ function treatCat3(order) {
     taggedRecipes.push(r)
   })
   return ustensilSet[order]
+}
+
+// traitement des listes déroulantes
+// className contient la catégorie [11] et l'index de l'item [13.."]
+function selectItem(event) {
+  let itemSelected = event.currentTarget.id
+  let itemClass = event.currentTarget.className
+  treatCat(itemSelected, itemClass)
+  selRecipes()
+  displaySelRecipes()
+  switch (itemClass[11]) {
+    case "1":
+      hideCat1()
+      break
+    case "2":
+      hideCat2()
+      break
+    case "3":
+      hideCat3()
+      break
+  }
+}
+
+// initialise à true ou false tous les items des catégories
+function setCatsDisplay(state) {
+  ingredientSet.forEach(i => {
+    i.displayAble = state
+  })
+  ustensilSet.forEach(i => {
+    i.displayAble = state
+  })
+  applianceSet.forEach(i => {
+    i.displayAble = state
+  })
+}
+
+// génère les noms en majuscule de chaque item des catégories
+function toUpperNameArrays() {
+  ingredientSet.forEach(item => {
+    item.upperName = toUpperName(item.name) + " "
+  })
+  ustensilSet.forEach(item => {
+    item.upperName = toUpperName(item.name) + " "
+  })
+  applianceSet.forEach(item => {
+    item.upperName = toUpperName(item.name) + " "
+  })
 }

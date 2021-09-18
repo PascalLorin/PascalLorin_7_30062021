@@ -15,8 +15,8 @@ class Recipe {
 
   // Transforme la description en majuscules sans accents
   convUpperCase = function () {
-    this.upperName = toUpperName(this.name)
-    this.upperDescription = toUpperName(this.description)
+    this.upperName = toUpperName(this.name) + " "
+    this.upperDescription = toUpperName(this.description) + " "
   }
 
   // charge les arrays à partir des datas de la recette
@@ -73,10 +73,10 @@ class Recipe {
     let card = document.createElement('section')
     card.setAttribute('id', this.id)
     card.setAttribute('class', "card")
-    card.textContent = this.id
     recipesCont.append(card)
     let card_high = document.createElement('div')
     card_high.setAttribute('class', "card__high")
+    card_high.textContent = this.id
     card.append(card_high)
     let card_low = document.createElement('div')
     card_low.setAttribute('class', "card__low")
@@ -126,7 +126,7 @@ class Recipe {
 
 // affichage de la page principale avec toutes les recettes au lancement
 function displayAllRecipes() {
-  effaceCards()
+  removeItems(recipesCont)
   recipeSet.forEach(r => {
     r.displayRecipe()
   })
@@ -134,7 +134,7 @@ function displayAllRecipes() {
 
 // affichage de la page principale avec les recettes sélectionnées
 function displaySelRecipes() {
-  effaceCards()
+  removeItems(recipesCont)
   recipeSet.forEach(r => {
     for (let i of displayAbleRecipes) {
       if (i == r.id) {

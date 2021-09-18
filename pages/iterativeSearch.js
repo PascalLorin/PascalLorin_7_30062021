@@ -13,13 +13,15 @@ function iterativeSearch(item, wItem) {
       } else {
         if (wItem.includes(wTag.upperName)) {
           if (wTag.upperName != wItem) {
+            let parent = document.getElementById(wTag.name)
+            parent.setAttribute('id',item)
             lastSearchTagName.textContent = item
             tagSet[tagSet.length - 1].name = item
             tagSet[tagSet.length - 1].upperName = wItem
+            tagSet[tagSet.length - 1].recipes = []
           }
         } else {
           tagToAdd = true
-          debugger // traitement de backspace
         }
       }
       if (tagToAdd) {
@@ -38,7 +40,7 @@ function iterativeSearch(item, wItem) {
       }
     }
   })
-  debugger
+  // recherche itérative du tag saisi dans l'array des ingrédients
   ingredientSet.forEach(ingr => {
     if (ingr.upperName.includes(wItem)) {
       found = true
@@ -48,14 +50,4 @@ function iterativeSearch(item, wItem) {
     }
   })
   return found
-}
-
-function createTag(item, recipe, wItem, cat) {
-  let newItem = {
-    name: item,
-    recipes: [recipe],
-    upperName: wItem
-  }
-  let newTag = new Tag(newItem, cat)
-  newTag.addTag()
 }

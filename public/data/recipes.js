@@ -140,7 +140,7 @@
             }
         ],
         "time": 50,
-        "description": "Faire cuire le riz et le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix et couper les tomates en dés. Ajouter au riz, les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter, au goût de chacun, des cornichons, des olives, etc...",
+        "description": "Faire cuire le riz et le laisser refroidir. Couper les oeufs dur en quarts ou en lamelles, au choix, et couper les tomates en dés. Ajouter au riz, les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter, au goût de chacun, des cornichons, des olives, etc...",
         "appliance": "Cuiseur de riz",
         "ustensils": ["saladier", "passoire"]
     },
