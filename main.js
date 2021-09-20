@@ -13,44 +13,6 @@ function reInitPage() {
   displayAllRecipes()
 }
 
-//  traitement du champs de recherche
-//  rechercher en majuscules ce qui est saisi.
-//  puis afficher les recettes qui correspondent.
-function selectSearch(event) {
-  hideCats()
-  switch (event.key) {
-    case "Escape":
-      reInitPage()
-      return
-    case "Backspace":
-      treatLastTag0()
-      treatTags()
-      break
-  }
-  if (search.value.length > 2) {
-    let tSearch = search.value.split(" ")
-    let wSearch = toUpperName(search.value)
-    let wString = wSearch.split(" ")
-    let l = wString.length
-    for (let i = 0; i < l; i++) {
-      if (tSearch[i].length > 2) {
-        if (l > 1 && i < l - 1) {
-          tSearch[i] += " "
-          wString[i] += " "
-        }
-        taggedRecipes = []
-        if (iterativeSearch(tSearch[i], wString[i])) {
-          selRecipes()
-          displaySelRecipes()
-        }
-        if (displayAbleRecipes.length == 0) {
-          alert("Aucune recette ne correspond à ces critères de recherche")
-        }
-      }
-    }
-  }
-}
-
 // sélectionne les recettes à afficher
 // taggedRecipes est la tableau des recettes qui sont pointées par au moins un tag
 function selRecipes() {
@@ -150,7 +112,6 @@ function loadJson() {
       recipesCont = document.getElementById('cards-cont')
       tagSetCont = document.getElementById('tags')
       displayAllRecipes()
-
       // DOM Elements & events listeners
       const search = document.getElementById("search")
       const btnSearch = document.getElementById("btnSearch")
