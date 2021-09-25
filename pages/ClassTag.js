@@ -70,7 +70,6 @@ function createTag(item, recipe, wItem, cat) {
 
 // clic sur un tag : annulation de la sélection
 function removeTag(event) {
-  debugger
   let sTag = event.currentTarget.id
   element = event.currentTarget
   deleteTag(sTag, false)
@@ -79,7 +78,7 @@ function removeTag(event) {
 // suppression du tag
 // réaffiche les recettes en fonction du nouvel état des tags
 function deleteTag(sTag, back) {
-//  hideCats()
+  hideCats()
   let i = 0
   for (let t of tagSet) {
     if (sTag == t.upperName) {
