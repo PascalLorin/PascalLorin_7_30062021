@@ -6,8 +6,8 @@ var ingredientSet = [];     // array des objets ingredient chargé à partir des
 var applianceSet = [];      // array des objets appliance chargé à partir des recettes
 var ustensilSet = [];       // array des objets ustensil chargé à partir des recettes
 var tagSet = [];            // array des tags chargé à partir des ingredient, appliance, ustensil et saisie
-var taggedRecipes = []      // array des #recipes incluant les tags
-var displayAbleRecipes = [] // array des #recipes à afficher
+var foundRecipes = []       // array des recipes incluant les tags
+var displayAbleRecipes = [] // array des recipes à afficher
 var recipesCont;            // l'élement HTML contenant l'affichage des recettes
 var tagSetCont;             // l'élement HTML contenant l'affichage des tags
 var lastSearchTagName;      // l'élement HTML contenant le tag en cours de saisie

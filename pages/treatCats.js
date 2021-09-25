@@ -1,4 +1,4 @@
-var classes;
+var classes
 // display cat clicked
 function dispCat(event) {
   let cat = event.currentTarget.id
@@ -173,21 +173,21 @@ function treatCat(itemSelected, itemClass) {
 
 function treatCat1(order) {
   ingredientSet[order].recipes.forEach(r => {
-    taggedRecipes.push(r)
+    foundRecipes.push(recipeSet[r-1])
   })
   return ingredientSet[order]
 }
 
 function treatCat2(order) {
   applianceSet[order].recipes.forEach(r => {
-    taggedRecipes.push(r)
+    foundRecipes.push(recipeSet[r-1])
   })
   return applianceSet[order]
 }
 
 function treatCat3(order) {
   ustensilSet[order].recipes.forEach(r => {
-    taggedRecipes.push(r)
+    foundRecipes.push(recipeSet[r-1])
   })
   return ustensilSet[order]
 }
@@ -229,12 +229,15 @@ function setCatsDisplay(state) {
 // génère les noms en majuscule de chaque item des catégories
 function toUpperNameArrays() {
   ingredientSet.forEach(item => {
-    item.upperName = toUpperName(item.name) + " "
+//    item.name += " "
+    item.upperName = toUpperName(item.name)
   })
   ustensilSet.forEach(item => {
-    item.upperName = toUpperName(item.name) + " "
+//    item.name += " "
+    item.upperName = toUpperName(item.name)
   })
   applianceSet.forEach(item => {
-    item.upperName = toUpperName(item.name) + " "
+//    item.name += " "
+    item.upperName = toUpperName(item.name)
   })
 }

@@ -1,21 +1,21 @@
 // search input value in all the recipes's name & description and ingredientSet
 // return true if found
-function iterativeSearch(item, wItem) {
-  let found = false
-  recipeSet.forEach(w => {
-    let tagToAdd = false
-    if (w.upperDescription.includes(wItem) || w.upperName.includes(wItem)) {
-      found = true
-      taggedRecipes.push(w.id)
+function nativeSearch(item, wItem) {
+  foundRecipes = recipeSet.filter(r => findTag(r, item, wItem))
+  if (foundRecipes.length) {
+    foundRecipes.forEach(w => {
       let wTag = tagSet[tagSet.length - 1]
+      tagToAdd = false
       if (tagSet.length == 0) {
         tagToAdd = true
       } else {
         if (wItem.includes(wTag.upperName)) {
           if (wTag.upperName != wItem) {
-            let parent = document.getElementById(wTag.name)
-            parent.setAttribute('id',item)
-            lastSearchTagName.textContent = item
+            element = document.getElementById(wTag.upperName)
+            element.setAttribute('id', wItem)
+//            lastSearchTagName.textContent = item
+            let div = element.firstChild
+            div.textContent = item
             tagSet[tagSet.length - 1].name = item
             tagSet[tagSet.length - 1].upperName = wItem
             tagSet[tagSet.length - 1].recipes = []
@@ -38,15 +38,31 @@ function iterativeSearch(item, wItem) {
           tagSet[tagSet.length - 1].recipes.push(w.id)
         }
       }
-    }
-  })
+    })
+  }
   // recherche itérative du tag saisi dans l'array des ingrédients
   ingredientSet.forEach(ingr => {
     if (ingr.upperName.includes(wItem)) {
-      found = true
       ingr.recipes.forEach(r => {
-        taggedRecipes.push(r)
+        foundRecipes.push(recipeSet[r - 1])
       })
+    }
+  })
+  if (foundRecipes.length) {
+    let wArray = foundRecipes
+    foundRecipes = [...new Set(wArray)]
+  }
+  return foundRecipes
+}
+
+function findTag(r, item, wItem) {
+  let found = false
+  if (r.upperDescription.includes(wItem) || r.upperName.includes(wItem)) {
+    found = true
+  }
+  r.upperIngredients.forEach(i => {
+    if (i.includes(wItem)) {
+      found = true
     }
   })
   return found
@@ -61,12 +77,9 @@ function selectSearch(event) {
     case "Escape":
       reInitPage()
       return
-    case "Backspace":
-      treatLastTag0()
-      treatTags()
-      break
   }
   if (search.value.length > 2) {
+    foundRecipes = []
     let tSearch = search.value.split(" ")
     let wSearch = toUpperName(search.value)
     let wString = wSearch.split(" ")
@@ -77,15 +90,31 @@ function selectSearch(event) {
           tSearch[i] += " "
           wString[i] += " "
         }
-        taggedRecipes = []
-        if (iterativeSearch(tSearch[i], wString[i])) {
-          selRecipes()
-          displaySelRecipes()
+/*
+        if (tagSet.length > 0) {
+          for (let t = 0; t < tagSet.length - 1; t++) {
+            if (tagSet[t].upperName.includes(wString[i])) {
+              alert("Ce critère est déjà sélectionné")
+              deleteTag(tagSet[t].name, false)
+              return false
+            }
+          }
         }
-        if (displayAbleRecipes.length == 0) {
-          alert("Aucune recette ne correspond à ces critères de recherche")
-        }
+*/
+        let foundRecipes = nativeSearch(tSearch[i], wString[i])
+        displayRecipes()
       }
     }
+  }
+}
+
+
+function displayRecipes() {
+  if (foundRecipes) {
+    selRecipes()
+    displaySelRecipes()
+  }
+  if (displayAbleRecipes.length == 0) {
+    alert("Aucune recette ne correspond à ces critères de recherche")
   }
 }

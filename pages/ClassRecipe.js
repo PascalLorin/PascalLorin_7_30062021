@@ -2,21 +2,25 @@
 class Recipe {
   constructor(arg) {
     this.id = arg.id
-    this.name = arg.name
+    this.name = arg.name + " "
     this.servings = arg.servings
     this.ingredients = arg.ingredients
     this.time = arg.time
-    this.description = arg.description
+    this.description = arg.description + " "
     this.appliance = arg.appliance
     this.ustensils = arg.ustensils
     this.upperName
     this.upperDescription
+    this.upperIngredients = []
   }
 
   // Transforme la description en majuscules sans accents
   convUpperCase = function () {
     this.upperName = toUpperName(this.name) + " "
     this.upperDescription = toUpperName(this.description) + " "
+    for (let i = 0; i < this.ingredients.length; i++) {
+      this.upperIngredients[i] = toUpperName(this.ingredients[i].ingredient) + " "
+    }
   }
 
   // charge les arrays à partir des datas de la recette
@@ -135,12 +139,61 @@ function displayAllRecipes() {
 // affichage de la page principale avec les recettes sélectionnées
 function displaySelRecipes() {
   removeItems(recipesCont)
-  recipeSet.forEach(r => {
-    for (let i of displayAbleRecipes) {
-      if (i == r.id) {
-        r.displayRecipe()
+  displayAbleRecipes.forEach(r => {
+    r.displayRecipe()
+  })
+}
+
+// sélectionne les recettes à afficher
+// foundRecipes est la tableau des recettes qui sont pointées par au moins un tag
+// displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
+function selRecipes() {
+  // initialise displayAbleRecipes avant de la recharger
+  displayAbleRecipes = []
+  foundRecipes.forEach(rT => {
+    let displayAble = true
+    for (let tS of tagSet) {
+      if (!tS.recipes.includes(rT.id)) {
+        displayAble = false
+        break
+      }
+    }
+    if (displayAble) {
+      displayAbleRecipes.push(rT)
+    }
+  })
+  if (displayAbleRecipes) {
+    let wArray = displayAbleRecipes
+    displayAbleRecipes = [...new Set(wArray)]
+    setCatsDisplay(false)
+    displayAbleRecipes.forEach(r => {
+      initCatsDisplay(r)
+    })
+  }
+}
+
+// permet de n'afficher que les tags des recettes sélectionnées
+function initCatsDisplay(r) {
+  r.ingredients.forEach(i => {
+    for (w of ingredientSet) {
+      if (i.ingredient == w.name) {
+        w.displayAble = true
         break
       }
     }
   })
+  r.ustensils.forEach(i => {
+    for (w of ustensilSet) {
+      if (i == w.name) {
+        w.displayAble = true
+        break
+      }
+    }
+  })
+  for (w of applianceSet) {
+    if (r.appliance == w.name) {
+      w.displayAble = true
+      break
+    }
+  }
 }

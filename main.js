@@ -13,65 +13,6 @@ function reInitPage() {
   displayAllRecipes()
 }
 
-// sélectionne les recettes à afficher
-// taggedRecipes est la tableau des recettes qui sont pointées par au moins un tag
-function selRecipes() {
-  // supprime les doublons dans taggedRecipes
-  if (taggedRecipes.length > 2) {
-    let wArray1 = taggedRecipes.slice(0, 1)
-    let wArray2 = taggedRecipes.slice(1)
-    taggedRecipes = [...new Set(wArray1.concat(wArray2))]
-  }
-  // initialise displayAbleRecipes avant de la recharger
-  // displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
-  displayAbleRecipes = []
-  taggedRecipes.forEach(rT => {
-    let displayAble = true
-    for (let tS of tagSet) {
-      if (!tS.recipes.includes(rT)) {
-        displayAble = false
-        break
-      }
-    }
-    if (displayAble) {
-      displayAbleRecipes.push(rT)
-    }
-  })
-  if (displayAbleRecipes.length > 0) {
-    displayAbleRecipes.sort((a, b) => a - b)
-    setCatsDisplay(false)
-    displayAbleRecipes.forEach(r => {
-      initCatsDisplay(r)
-    })
-  }
-}
-
-// modifier pour cat "0" ???
-function initCatsDisplay(r) {
-  recipeSet[r - 1].ingredients.forEach(i => {
-    for (w of ingredientSet) {
-      if (i.ingredient == w.name) {
-        w.displayAble = true
-        break
-      }
-    }
-  })
-  recipeSet[r - 1].ustensils.forEach(i => {
-    for (w of ustensilSet) {
-      if (i == w.name) {
-        w.displayAble = true
-        break
-      }
-    }
-  })
-  for (w of applianceSet) {
-    if (recipeSet[r - 1].appliance == w.name) {
-      w.displayAble = true
-      break
-    }
-  }
-}
-
 // supprime les accents, la ponctuation et les espaces multiples
 function toUpperName(wString) {
   let convString = replaceAccent(wString)

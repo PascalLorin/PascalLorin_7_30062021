@@ -10,13 +10,14 @@ class Tag {
 
   // recherche si le tag existe déjà
   addTag = function () {
+    var tagToAdd = true
     if (tagSet.length == 0) {
       this.pushTag()
     } else {
-      var tagToAdd = true
       tagSet.forEach(t => {
-        if (t.name == this.name) {
+        if (t.upperName == this.upperName) {
           tagToAdd = false
+          alert("Ce critère est déjà sélectionné")
         }
       })
       if (tagToAdd) {
@@ -26,7 +27,7 @@ class Tag {
   }
 
   // crée l'array des tags à partir de l'élément traité
-  // ajoute eventListener(s) pour supprimer le(s) tag(s)
+  // ajoute eventListener(s) pour pouvoir supprimer le(s) tag(s)
   pushTag = function () {
     tagSet.push(this)
     this.displayTag()
@@ -37,7 +38,7 @@ class Tag {
   // Affiche le tag nouvellement créé
   displayTag = function () {
     let tagB = document.createElement('button')
-    tagB.setAttribute('id', this.name)
+    tagB.setAttribute('id', this.upperName)
     tagB.setAttribute('class', "tag tag" + this.cat)
     tagSetCont.append(tagB)
     let tagName = document.createElement('div')
@@ -69,22 +70,24 @@ function createTag(item, recipe, wItem, cat) {
 
 // clic sur un tag : annulation de la sélection
 function removeTag(event) {
+  debugger
   let sTag = event.currentTarget.id
+  element = event.currentTarget
   deleteTag(sTag, false)
 }
 
 // suppression du tag
 // réaffiche les recettes en fonction du nouvel état des tags
 function deleteTag(sTag, back) {
-  hideCats()
+//  hideCats()
   let i = 0
   for (let t of tagSet) {
-    if (sTag == t.name) {
+    if (sTag == t.upperName) {
       if (t.cat == "0") {
         if (back) {
-          wStr = search.value.replace(sTag.substring(0, sTag.length - 1), "")
+          wStr = search.value.splice(search.value.length - 1, "")
         } else {
-          wStr = search.value.replace(sTag, "")
+          wStr = search.value.replace(t.name, "")
         }
         search.value = wStr.replace(/\s{2,}/g, " ")
       }
@@ -105,31 +108,33 @@ function deleteTag(sTag, back) {
 }
 
 function treatTags() {
-  taggedRecipes = []
+  foundRecipes = []
   tagSet.forEach(t => {
     t.recipes.forEach(r => {
-      taggedRecipes.push(r)
+      foundRecipes.push(recipeSet[r - 1])
     })
   })
   selRecipes()
 }
-
+/*
 function treatLastTag0() {
   let wLng = lastSearchTagName.textContent.length
+  let wStr = lastSearchTagName.textContent.slice(0,lastSearchTagName.textContent.length -1)
+  let uStr = wStr.toUpperCase()
   for (let i = tagSet.length - 1; i > -1; i--) {
     if (tagSet[i].cat == "0") {
       if (wLng > 3) {
-        let wStr = lastSearchTagName.textContent.substring(0, wLng - 1)
-        let parent = document.getElementById(lastSearchTagName.textContent)
-        parent.setAttribute('id', wStr)
-        lastSearchTagName.textContent = wStr
+        element = document.getElementById(lastSearchTagName.textContent.toUpperCase())
+        let div = element.firstChild
+        element.setAttribute('id',uStr)
+        div.textContent = wStr
         tagSet[i].name = wStr
-        tagSet[i].upperName = tagSet[i].upperName.substring(0, wLng - 1)
+        tagSet[i].upperName = uStr
         return
       } else {
-        deleteTag(lastSearchTagName.textContent,true)
-        return
+        deleteTag(lastSearchTagName.textContent, true)
       }
     }
   }
 }
+*/
