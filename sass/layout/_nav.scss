@@ -20,7 +20,7 @@
 
 .catItem {
     min-width: 17rem;
-    max-height: 7rem;
+    height: 7rem;
     border-radius: 0.5rem;
     margin-right: 2rem;
     float: left;
@@ -32,7 +32,7 @@
 
         &__name {
             width: 13rem;
-            padding: 2.4rem 1.5rem 2.5rem 1.5rem;
+            padding: 2.4rem 1.5rem; // 2.5rem 1.5rem;
         }
 
         &__title {
@@ -59,7 +59,7 @@
 
 #cat1ItemC {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     padding-left: 1.9rem;
     padding-bottom: 1.5rem;
     background-color: $color-bgrdI;
@@ -93,7 +93,7 @@
 
 #cat3ItemC {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     padding-left: 1.9rem;
     padding-bottom: 1.5rem;
     background-color: $color-bgrdU;

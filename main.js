@@ -1,7 +1,7 @@
 // initialisation de l'affichage recettes et items des catégories
 function removeItems(element) {
   while (element.firstChild) {
-    element.removeChild(element.firstChild);
+    element.removeChild(element.firstChild)
   }
 }
 
@@ -62,6 +62,11 @@ function loadJson() {
       btnSearch.addEventListener('click', selectSearch)
       dispBtn.forEach((btn) => btn.addEventListener("click", dispCat))
       hideBtn.forEach((btn) => btn.addEventListener("click", hideCat))
+      document.addEventListener("keydown", ({ key }) => {
+        if (key === "Escape") {
+          reInitPage()
+        }
+      })
     })
 }
 

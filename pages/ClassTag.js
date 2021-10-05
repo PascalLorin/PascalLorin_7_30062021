@@ -17,7 +17,6 @@ class Tag {
       tagSet.forEach(t => {
         if (t.upperName == this.upperName) {
           tagToAdd = false
-          alert("Ce critère est déjà sélectionné")
         }
       })
       if (tagToAdd) {

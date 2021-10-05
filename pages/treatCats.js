@@ -229,15 +229,12 @@ function setCatsDisplay(state) {
 // génère les noms en majuscule de chaque item des catégories
 function toUpperNameArrays() {
   ingredientSet.forEach(item => {
-//    item.name += " "
     item.upperName = toUpperName(item.name)
   })
   ustensilSet.forEach(item => {
-//    item.name += " "
     item.upperName = toUpperName(item.name)
   })
   applianceSet.forEach(item => {
-//    item.name += " "
     item.upperName = toUpperName(item.name)
   })
 }

@@ -36,29 +36,6 @@
     }
 }
 
-.toTop {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    width: 5rem;
-    height: 5rem;
-    background-color: $color-bgrdHC;
-    border: none;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.3;
-
-    &:hover {
-        opacity: 1;
-    }
-}
-
-#toTop {
-    font-size: 2rem;
-    color: black;
-}
-
 // tags display
 .tags {
     width: 100%;
@@ -123,7 +100,7 @@
 
 // main page : grid recipes display
 #cards-cont {
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -141,6 +118,12 @@
     border: none;
     font-weight: 700;
     font-size: 1.2rem;
+
+    &:hover,
+    &:active {
+        height: auto;
+    }
+
     // high part of the card
     &__high {
         border-radius: 0.5rem 0.5rem 0 0;
@@ -212,11 +195,34 @@
             &r {
                 width: 16rem;
                 max-height: 10.5rem;
-                display: inline-flexbox;
+                display: flex;
                 flex-wrap: wrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
         }
     }
+}
+
+.toTop {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 5rem;
+    height: 5rem;
+    background-color: $color-bgrdHC;
+    border: none;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+#toTop {
+    font-size: 2rem;
+    color: black;
 }

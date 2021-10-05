@@ -74,7 +74,7 @@ class Recipe {
 
   // affiche une recette
   displayRecipe = function () {
-    let card = document.createElement('section')
+    let card = document.createElement('article')
     card.setAttribute('id', this.id)
     card.setAttribute('class', "card")
     recipesCont.append(card)
@@ -128,6 +128,19 @@ class Recipe {
   }
 }
 
+// Lance la recherche des recettes affichables 
+// puis les affiche ou msg d'erreur
+function displayRecipes() {
+  if (foundRecipes.length > 0) {
+    selRecipes()
+  }
+  if (displayAbleRecipes.length > 0) {
+    displaySelRecipes()
+  } else {
+    alert("Aucune recette ne correspond à ces critères de recherche")
+  }
+}
+
 // affichage de la page principale avec toutes les recettes au lancement
 function displayAllRecipes() {
   removeItems(recipesCont)
@@ -147,12 +160,17 @@ function displaySelRecipes() {
 // sélectionne les recettes à afficher
 // foundRecipes est la tableau des recettes qui sont pointées par au moins un tag
 // displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
+// initialise displayAbleRecipes avant de la recharger
 function selRecipes() {
-  // initialise displayAbleRecipes avant de la recharger
+  debugger
   displayAbleRecipes = []
   foundRecipes.forEach(rT => {
+    console.log(rT)
     let displayAble = true
     for (let tS of tagSet) {
+      console.log(tS)
+      console.log(tS.recipes)
+      console.log(tS.recipes.includes(rT.id))
       if (!tS.recipes.includes(rT.id)) {
         displayAble = false
         break
