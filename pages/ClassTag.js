@@ -15,7 +15,7 @@ class Tag {
     } else {
       var tagToAdd = true
       tagSet.forEach(t => {
-        if (t.name == this.name) {
+        if (t.upperName.includes(this.upperName)) {
           tagToAdd = false
         }
       })

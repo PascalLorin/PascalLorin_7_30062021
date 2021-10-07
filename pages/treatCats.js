@@ -155,7 +155,7 @@ function hideCat3() {
 function treatCat(itemSelected, itemClass) {
   let cat = itemClass[11]
   let order = parseInt(itemClass.substring(13))
-  let tag;
+  let tagN
   switch (cat) {
     case "1":
       tagN = treatCat1(order)

@@ -11,12 +11,16 @@ class Recipe {
     this.ustensils = arg.ustensils
     this.upperName
     this.upperDescription
+    this.upperIngredients = []
   }
 
   // Transforme la description en majuscules sans accents
   convUpperCase = function () {
     this.upperName = toUpperName(this.name) + " "
     this.upperDescription = toUpperName(this.description) + " "
+    for (let i = 0; i < this.ingredients.length; i++) {
+      this.upperIngredients[i] = toUpperName(this.ingredients[i].ingredient) + " "
+    }
   }
 
   // charge les arrays à partir des datas de la recette
@@ -135,12 +139,7 @@ function displayAllRecipes() {
 // affichage de la page principale avec les recettes sélectionnées
 function displaySelRecipes() {
   removeItems(recipesCont)
-  recipeSet.forEach(r => {
-    for (let i of displayAbleRecipes) {
-      if (i == r.id) {
-        r.displayRecipe()
-        break
-      }
-    }
+  displayAbleRecipes.forEach(r => {
+    recipeSet[r - 1].displayRecipe()
   })
 }

@@ -1,7 +1,7 @@
 // initialisation de l'affichage recettes et items des catégories
 function removeItems(element) {
   while (element.firstChild) {
-    element.removeChild(element.firstChild);
+    element.removeChild(element.firstChild)
   }
 }
 
@@ -15,15 +15,9 @@ function reInitPage() {
 
 // sélectionne les recettes à afficher
 // taggedRecipes est la tableau des recettes qui sont pointées par au moins un tag
+// initialise displayAbleRecipes avant de la recharger
+// displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
 function selRecipes() {
-  // supprime les doublons dans taggedRecipes
-  if (taggedRecipes.length > 2) {
-    let wArray1 = taggedRecipes.slice(0, 1)
-    let wArray2 = taggedRecipes.slice(1)
-    taggedRecipes = [...new Set(wArray1.concat(wArray2))]
-  }
-  // initialise displayAbleRecipes avant de la recharger
-  // displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
   displayAbleRecipes = []
   taggedRecipes.forEach(rT => {
     let displayAble = true
@@ -46,7 +40,7 @@ function selRecipes() {
   }
 }
 
-// modifier pour cat "0" ???
+// rend affichable les items des catégories de la recette
 function initCatsDisplay(r) {
   recipeSet[r - 1].ingredients.forEach(i => {
     for (w of ingredientSet) {
