@@ -1,7 +1,5 @@
 // enter
 #enter {
-    position: absolute;
-    top: 0;
     height: 1rem;
     width: 100%;
 }
@@ -24,7 +22,6 @@
     }
 
     &__title {
-    //    font-family:"DM Sans";
         font-style: normal;
         font-weight: 700;
         font-size: 3.6rem;

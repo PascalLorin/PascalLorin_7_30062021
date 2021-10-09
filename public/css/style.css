@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  width: 100%;
 }
 
 body {
@@ -39,8 +40,6 @@ h1 {
 }
 
 #enter {
-  position: absolute;
-  top: 0;
   height: 1rem;
   width: 100%;
 }
