@@ -2,7 +2,6 @@
 //  recherche en majuscules ce qui a été saisi
 //  puis afficher les recettes qui correspondent ou msg erreur
 function selectSearch(event) {
-  //  hideCats()
   switch (event.key) {
     case "Escape":
       reInitPage()

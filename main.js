@@ -1,8 +1,6 @@
 // initialisation de l'affichage recettes et items des catégories
 function removeItems(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild)
-  }
+  element.innerHTML = ""
 }
 
 function reInitPage() {

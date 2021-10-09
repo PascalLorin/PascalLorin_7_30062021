@@ -139,6 +139,7 @@ function displayAllRecipes() {
 // affichage de la page principale avec les recettes sélectionnées
 function displaySelRecipes() {
   removeItems(recipesCont)
+  debugger
   displayAbleRecipes.forEach(r => {
     recipeSet[r - 1].displayRecipe()
   })
