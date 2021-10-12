@@ -1,14 +1,22 @@
+:root {
+  --padding-left: calc(50% - 620px);
+}
+
 html {
   font-size: 62.5%;
   width: 100%;
 }
 
 body {
-  max-width: 1240px;
   flex-flow: column;
-  margin: auto;
+  max-width: 1240px;
+  padding-left: var(--padding-left);
   color: #000;
   font-family: "Lato";
+}
+
+main {
+  box-sizing: border-box;
 }
 
 div,
@@ -31,6 +39,7 @@ a {
 
 .sr-only {
   visibility: hidden;
+  width: 100px;
 }
 
 h1 {
@@ -41,7 +50,9 @@ h1 {
 
 #enter {
   height: 1rem;
-  width: 100%;
+  width: fit-content;
+  position: absolute;
+  top: 0;
 }
 
 .m-header {
@@ -114,7 +125,7 @@ h1 {
 #cat1ItemD {
   z-index: 9;
   flex-direction: column;
-  font-style: "normal";
+  font-style: normal;
   font-weight: 400;
   width: 67rem;
   height: 40rem;
@@ -132,7 +143,7 @@ h1 {
 #cat2ItemD {
   z-index: 9;
   flex-direction: column;
-  font-style: "normal";
+  font-style: normal;
   font-weight: 400;
   width: 30rem;
   height: auto;
@@ -149,7 +160,7 @@ h1 {
 #cat3ItemD {
   z-index: 9;
   flex-direction: column;
-  font-style: "normal";
+  font-style: normal;
   font-weight: 400;
   width: 67rem;
   height: 40rem;

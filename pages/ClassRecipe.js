@@ -162,7 +162,6 @@ function displaySelRecipes() {
 // displayableRecipes est la tableau des recettes qui sont pointées par tous les tags
 // initialise displayAbleRecipes avant de la recharger
 function selRecipes() {
-  debugger
   displayAbleRecipes = []
   foundRecipes.forEach(rT => {
     console.log(rT)
